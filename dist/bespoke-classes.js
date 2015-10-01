@@ -10,8 +10,12 @@
 module.exports = function() {
   return function(deck) {
     var addClass = function(el, cls) {
-        el.classList.add('bespoke-' + cls);
-      },
+      if( el.classList !== undefined ){
+          el.classList.add('bespoke-' + cls);
+      }else {
+          el.className += ' bespoke-' + cls;
+      }
+    },
 
       removeClass = function(el, cls) {
         el.className = el.className
